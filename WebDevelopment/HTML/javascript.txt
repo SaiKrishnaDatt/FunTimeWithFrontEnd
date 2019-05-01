@@ -1,0 +1,582 @@
+JavaScript:
+
+What is JS
+including JS
+basics of JS
+variables and types
+conditionals
+Functions
+Scopes
+Closures
+Objects and Arrays
+Looping 
+
+
+What is javascript:
+object oriented - prototypical inheritance instead of class-based
+
+Dynamic
+often considered type-less , but instead is dynamically typed. Can opt-into type-checking too .(by using high level language like 'TypeScript' and 'CopyScript' )
+
+Compiled?
+considered an interpreted language , but in many cases the code is 'just-in-time' compiled like other high performing languages like c# and java
+
+
+
+-----------------------
+Sample First program
+
+<script type="text/javascript">
+            var msg = "Hello JavaScript"
+            alert(msg);
+        </script>
+
+
+
+
+        complete html
+        <!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+        <script type="text/javascript">
+            var msg = "Hello JavaScript"
+            alert(msg);
+        </script>
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                This is where result will live ... eventually.
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+     </body>
+	</body>
+</html>
+
+
+we usually don't use alert()  we use conosle.log(msg)
+<script type="text/javascript">
+            var msg = "Hello JavaScript"
+            console.log(msg);
+        </script>
+
+
+        <!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                This is where result will live ... eventually.
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+      <script type="text/javascript">
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>This is from javascript </p>";
+        </script>
+     </body>
+	</body>
+</html>
+
+
+
+we placed the scipt at the bottom becuase if it was placed at beginning , all the elements are not loaded so it was not working .
+------------------------------------------------------------
+including javascript
+
+
+index.js:
+/* 
+
+index.js
+*/
+
+
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>This is from javascript </p>";
+        
+
+index.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                This is where result will live ... eventually.
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    <script type="text/javascript" src = "js/index.js">
+            </script>
+     </body>
+	</body>
+</html>
+
+
+
+----------------------
+
+variables and types:
+
+/* 
+
+index.js
+*/
+
+
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>This is from javascript </p>";
+
+            console.log("msg is " + typeof(msg));
+            console.log("resultsDiv is "+ typeof(resultsDiv));
+
+            var none;
+            console.log("none is" + typeof(none));
+
+
+            var aNumber =0 ;
+            console.log("aNumber  is " + typeof(aNumber));
+
+            var trueFalse = false;
+            console.log("trueFalse is " + typeof(trueFalse));
+
+            nonexistent =" this  shouldn't work"
+
+            
+
+            the last nonexistent one is directly assigned without being declared this is allowed in javascript but it will cause problem when users misspell some variables 
+
+            so we use "use strict" at the begining of the javascript file.
+
+
+
+-------------------------------------------------------------------------------------
+
+Conditions 
+
+if(..) {}
+else if(.. ) {}
+
+example: 
+if(none == undefined){
+            	console.log("none is undefined");
+            }
+
+            if(aNumber == "10")
+            {
+            	console.log("10 is 10");
+
+            }
+
+            if(aNumber === "10")
+            {
+            	console.log("10 is 10");
+            	
+            }
+----------------------------------------
+
+Functions in JS
+
+function is a keyword
+function showMsg(msg){
+	console.log("showMsg:"+ msg);
+
+}
+showMsg("some Information");
+
+one problem with functions is overloading
+function showMsg(msg){
+	console.log("showMsg:"+ msg);
+
+}
+
+
+function showMsg(msg,more){
+	console.log("showMsg:" +msg + more);
+}
+
+showMsg("some Information"); --> both will call showMsg with two arguements
+showMsg("some Information","and even more"); --> both will call showMsg with two arguements
+
+
+second showMsg(msg,more) is overwritten the first one so in reallity there is only one message available .
+
+How to handle this
+
+function showMsg(msg,more){
+if(more){	console.log("showMsg:" +msg + more);
+}
+else {
+	console.log("showMsg:" +msg);
+}
+}
+
+showMsg("some Information");
+showMsg("some Information","and even more");
+
+funciton  are first citizens as datatypes
+
+
+------------------------------------
+
+function showMsg(msg,more){
+if(more){	console.log("showMsg:" +msg + more);
+}
+else {
+	console.log("showMsg:" +msg);
+}
+}
+
+showMsg("some Information");
+showMsg("some Information","and even more");
+
+var showIt = function (msg){
+	console.log(msg);
+}
+
+showIt("some messsage");
+ 
+function showItThen(msg,callback){
+	showIt(msg);
+	callback();
+
+}
+
+showItThen("showItthen called",function (){
+console.log("callback called");
+});
+
+function is passed as argument to another funciton 
+-----------------------------------------------------
+scopes: all the variable are global copes 
+
+in java script funcitons only create scopes
+
+
+var inGlobal= true;
+
+function testMe(){
+	console.log("testMe(): " + inGlobal);
+
+	var someMsg = "some messsage";
+	console.log("testMe(): "+ someMsg);
+
+}
+
+console.log("testMe(): "+ someMsg);
+
+testMe();
+
+
+----------------------------
+
+closures in javascript:
+Allows access to outer variable within inner scopes
+Regardless of LifeTime
+--------------------------------------------------
+//javascript
+var x =1 ;
+ function someFunction(){
+ //works as it wraps 'x' with a closure
+ var y=x;
+ }
+
+ //much Later
+
+ someFunction();
+
+ }
+ --------------------------------------------
+
+ Objects and Arrays
+
+
+below "result" is a object
+ var result = {
+      name : "jquery";
+      language : "JavaScript",
+      score: 4.5
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+};
+
+//we can add property to object at any point 
+
+result.phoneNumber ="1123-456-7890"
+
+console.log(result.phoneNumber);
+ 
+
+Arrays:
+var result = {
+      name : "jquery";
+      language : "JavaScript",
+      score: 4.5
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+};
+
+//we can add property to object at any point 
+
+result.phoneNumber ="1123-456-7890"
+
+console.log(result.phoneNumber);
+
+var resluts = [{
+      name : "jquery";
+      language : "JavaScript",
+      score: 4.5
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI";
+      language : "JavaScript",
+      score: 4.5
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+resluts.push(result);
+results.push({
+      name: "dummy project"
+})
+
+console.log(results.lenght);
+console.log(results[0]);
+
+
+
+
+-------------------------------------
+Looping :
+
+/* 
+
+index.js
+*/
+
+            "use strict"
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>This is from javascript </p>";
+
+var result = {
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+};
+
+//we can add property to object at any point 
+
+result.phoneNumber ="1123-456-7890"
+
+console.log(result.phoneNumber);
+
+var resluts = [{
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+
+resluts.push(result);
+resluts.push({
+      name: "dummy project"
+})
+
+console.log(resluts.length);
+console.log(resluts[0]);
+
+for(var x=0 ;x< results.lenght; x++){
+      var result = results[x];
+      console .log(result);
+}

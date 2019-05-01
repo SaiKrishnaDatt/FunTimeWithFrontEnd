@@ -1,0 +1,241 @@
+What is HTML?
+
+HTML is a markup language .
+Hyper Text markup lang
+Angle bracket based structure
+Derived from SGML , which introduced general purpose markup lang
+<head></head> contains the metadata of the html document 
+<body></body> is the actual contains what users see
+
+
+HTML  not case sensitive
+Mixed closing rules
+<img src=""> don't have body 
+HTML relys on DOM
+It is hierarchy of elements
+Also an object graph.
+
+Hello Markup:
+
+<foo> Hello</foo> -- element is a name of an object it is surrounded by two bracket < >  begin of element <> endof element </>
+Everything inside is called content
+
+<foo>Hello</foo>
+<bar></bar>
+
+
+
+example 1: 
+<div id = "top">
+	<img src ="http://wildermuth.com/images/turnhead.gif" alt="my head"/>
+	<p> Hello World, <b> sai krishna</b></p>
+</div>
+
+example 2:
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+         <h1> Github Hub</h1>
+	</body>
+</html>
+
+example 3:
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+         <h1> <img src="img/gihub.jpg" /> Github Hub</h1>
+         <p> This is a <em> sample site </em>to search Github for interseting projects</p>
+         <p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+     </body>
+	</body>
+</html>
+
+
+Tags:
+
+div is a just a section of html page
+escape charactrs are entity reference 
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+		<div>
+         <h1> <img src="img/gihub.jpg" /> Github Hub</h1>
+         <p> This is a <em> sample site </em>to search Github for interseting projects</p>
+         </div>
+         <div>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         </div>
+         <div>
+         	&copy; 2019 Sai Krishna 
+         </div>
+     </body>
+	</body>
+</html>
+
+div is rectangular container
+and span is the inline contianer
+
+
+In HTML5 they introduced something called semantic tags . They better named based on what they are doing 
+eg: <header></header>
+<sectoin> </sectoin>
+<footer></footer>
+<nav></nav>
+
+
+Example program : 
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+		<header>
+         <h1> <img src="img/gihub.jpg" /> Github Hub</h1>
+         <p> This is a <em> sample site </em>to search Github for interseting projects</p>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+		<header>
+         <h1> <img src="img/gihub.jpg" /> Github Hub</h1>
+         <p> This is a <em> sample site </em>to search Github for interseting projects</p>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+HTML FORMS:
+Sitll now we are displaying the data we are not giving users to give input now we allow user to give input
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	
+
+
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<lable for="useStars">Use Stars?</lable></br>
+         	    <lable >Language:</lable>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+
+<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    		older than IE 9 will use the script src
+
+Summary:
+
+HTML5: 
+
+
+
+

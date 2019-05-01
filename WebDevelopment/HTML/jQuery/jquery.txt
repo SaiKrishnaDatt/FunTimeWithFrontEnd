@@ -1,0 +1,1251 @@
+Agenda:
+What is jQuery
+Getting jQuery
+jQuery basics
+Handling Events in jQuery
+Querying the Docuement
+Changing the Docuement
+Networking with jQuery
+Working with Forms
+
+
+
+What is JQuery
+
+It is a javascript library for use in client side web development . It's purpose is to enable developers create interacive websites that work across different browsers. This includes handling interactions form the user ,manipulating the page and as well as performing network requests.
+
+Before Jquery web development was difficult . Jquery is mean to provide a way to work through hard development problems without worrying about cross platform issues.
+
+Javascript and web have been around for a long time , but before jQuery came around it was much more difficult as the different browsers supported different things ,different versions of Javascript, different versions of the HTML spec, it become more difficult to write one set of code that would perform well across these different platforms. The goal of jQuery  was to hide some of these differences so that developers could focus on adding functionality, not on cross browsers issues.
+
+There are two vesions of jQuery 
+jQuery1.x -> it has eveything ,so slow
+jQuery2.x -> does not support InternetExplorer 6,7 or 8. 
+
+First Program :
+
+/* 
+
+index.js
+*/
+
+
+var reslutList = jQuery("#resultList");
+reslutList.text("This is from jquery")
+
+/* index.html*/
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>
+
+
+
+Note: jQuery object has an alias '$' dollar sign
+var reslutList = jQuery("#resultList");
+reslutList.text("This is from jquery")
+
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery")
+
+
+------------------------------------------------
+
+working with Event :
+
+/* 
+
+index.js
+*/
+
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+});
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" > Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>
+
+--example 2: toggle:
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" >Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>
+
+
+/* 
+
+index.js
+*/
+
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+
+
+one thing we noticed here is the script tags are placed at the bottom of the HTML because we don't want to run javascript before html elements are loaded but still it is not guaranteed so we use special funciton $(document).ready(function) in jQuery to guarantee this. see below code for details
+
+/* 
+
+index.js
+*/
+$(document).ready(function(){
+
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+});
+
+For now we studied how to use jQuery to query the DOM for elements that have a specific id specified.
+
+-----------------------------------------------------------
+Querying the Document
+
+
+Let's talk about creating DOM in general so we can see the real power of jQuery.
+
+jQuery can query anything that is described as a CSS selector . In fact jQuery add additional things that aren't allowed in CSS.
+
+jQuery function return something called a wrapped set.
+
+/* 
+
+index.js
+*/
+$(document).ready(function(){
+
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+});
+
+$("header nav li").css("font-weight","bold");
+
+var listItems = $("header nav li");
+listItems.css("font-weight","bold");
+listItems.filter(":first").css("font-size","18px"); //only setting font-size of the first element of the listItems
+
+
+
+--------------------------------------------------------------------
+Manipulate the Document:
+NOw lets see how to manipulate the DOM.
+
+Now moving back to last module code (see bleow)
+
+"use strict"
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>This is from javascript </p>";
+
+var result = {
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+};
+
+//we can add property to object at any point 
+
+result.phoneNumber ="1123-456-7890"
+
+console.log(result.phoneNumber);
+
+var resluts = [{
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+
+for(var x=0 ;x< results.lenght; x++){
+      var result = results[x];
+      console .log(result);
+}
+we created a collect of results here that we wanted to represent some query to Github. We're going to reuse these. 
+The last for loop is to log the information , we commented that code because we 're going to do something differnt. we gonna actually manipulate the DOM by adding results to the UI. we were using foreach , jQuery comes with faster version of loop for us to be able to do this sort of work . 
+/* 
+
+index.js
+*/
+/*$(document).ready(function(){
+
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+});
+
+$("header nav li").css("font-weight","bold");
+
+var listItems = $("header nav li");
+listItems.css("font-weight","bold");
+listItems.filter(":first").css("font-size","18px"); //only setting font-size of the first element of the listItems
+*/
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery  yes");
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+           // resultsDiv.innerHTML = "<p>This is from javascript </p>";
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+var resluts = [{
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+reslutList.empty();
+
+
+$.each(resluts, function(i,item){
+var newResult =  $("<div class='result'>" + 
+"<div class = 'title' > " + item.name + "</div>" +
+"<div> Language: " + item.language + "</div>" +
+"<div> Owner:" + item.owner.login + "</div>" +
+"</div>");
+
+
+newResult.hover(function(){
+      //make it darker
+      $(this).css("background-color","lightgrey");
+},function(){
+      //reverse
+      $(this).css("background-color","transparent");
+});
+reslutList.append(newResult);
+
+});
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</div>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" >Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>
+
+* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+
+	#results{
+		padding: 2px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     display: inline-block;
+     vertical-align: top;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+header nav{
+	float: right;
+	margin-right : 5px;
+
+}
+
+header nav li{
+	display : inline;
+}
+
+a{
+	color: green;
+}
+
+.result {
+	margin : 5px;
+	border : 1px solid #888;
+}
+
+.result .title{
+	font-weight : bold;
+}
+
+
+-------------------------------
+Networking with jQuery
+----------------------------------
+https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars
+
+
+/* 
+
+index.js
+*/
+/*$(document).ready(function(){
+
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+});
+
+$("header nav li").css("font-weight","bold");
+
+var listItems = $("header nav li");
+listItems.css("font-weight","bold");
+listItems.filter(":first").css("font-size","18px"); //only setting font-size of the first element of the listItems
+*/
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery  yes");
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+           // resultsDiv.innerHTML = "<p>This is from javascript </p>";
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+var gitHubSearch ="https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
+
+$.get(gitHubSearch)
+.success(function(r){
+      //console.log(r.items.length);
+      displayResults(r.items);
+})
+.fail(function (err){
+     cosole.log("Failed to query Github"); 
+})
+.done(function(){
+      //in either success or fail it will be exeuted at the end
+});
+/*
+var resluts = [{
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+*/
+function displayResults(resluts){
+
+
+reslutList.empty();
+
+
+$.each(resluts, function(i,item){
+var newResult =  $("<div class='result'>" + 
+"<div class = 'title' > " + item.name + "</div>" +
+"<div> Language: " + item.language + "</div>" +
+"<div> Owner:" + item.owner.login + "</div>" +
+"</div>");
+
+
+newResult.hover(function(){
+      //make it darker
+      $(this).css("background-color","lightgrey");
+},function(){
+      //reverse
+      $(this).css("background-color","transparent");
+});
+reslutList.append(newResult);
+
+});
+
+}
+
+
+
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	background-color: white;
+	}
+
+	#results{
+		padding: 2px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     display: inline-block;
+     vertical-align: top;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+header nav{
+	float: right;
+	margin-right : 5px;
+
+}
+
+header nav li{
+	display : inline;
+}
+
+a{
+	color: green;
+}
+
+.result {
+	margin : 5px;
+	border : 1px solid #888;
+}
+
+.result .title{
+	font-weight : bold;
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</div>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" >Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>
+
+
+---------------------------------------------------------------------------------
+
+Final Code:
+
+-------------------------------------------------------------------------
+index.js
+-----------
+
+/* 
+
+index.js
+*/
+/*$(document).ready(function(){
+
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+});
+
+$("header nav li").css("font-weight","bold");
+
+var listItems = $("header nav li");
+listItems.css("font-weight","bold");
+listItems.filter(":first").css("font-size","18px"); //only setting font-size of the first element of the listItems
+*/
+"use strict"
+
+var reslutList = $("#resultList");
+reslutList.text("This is from jquery  yes");
+            var msg = "Hello JavaScript";
+            console.log(msg);
+            var resultsDiv = document.getElementById("results");
+           // resultsDiv.innerHTML = "<p>This is from javascript </p>";
+var toggleButton = $("#toggleButton");
+toggleButton.on("click",function (){
+      reslutList.toggle(500);
+
+      if(toggleButton.text() == "Hide") toggleButton.text("Show");
+      else toggleButton.text("Hide");
+});
+
+$("#gitHubSearchForm").on("submit",function(){
+
+      var searchPhrase = $("#searchPhrases").val();
+      var useStars = $("#useStars").val();
+      var langChoice = $("#langChoice").val();
+      if(searchPhrase){
+
+      reslutList.text("performing search...");
+
+      var gitHubSearch ="https://api.github.com/search/repositories?q=" + encodeURIComponent(searchPhrase);
+      if(langChoice != "All")
+      {
+            gitHubSearch += "+language:" + encodeURIComponent(langChoice);
+      }
+      if(useStars){
+            gitHubSearch += "&sort=stars";
+      }
+
+//var gitHubSearch ="https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
+
+/*$.get(gitHubSearch)
+.success(function(r){
+      //console.log(r.items.length);
+      displayResults(r.items);
+})
+.fail(function (err){
+     cosole.log("Failed to query Github"); 
+})
+.done(function(){
+      //in either success or fail it will be exeuted at the end
+});*/
+$.get(gitHubSearch,function(r){
+      displayResults(r.items);
+});
+
+}
+      return false;
+});
+
+
+/*
+var resluts = [{
+      name : "jquery",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+},{
+      name : "jquery UI",
+      language : "JavaScript",
+      score: 4.5,
+      showLog : function (){
+            
+      }
+,
+owner: {
+      login : "krishnadutt",
+      id : 5967
+}
+}];
+*/
+function displayResults(resluts){
+
+
+reslutList.empty();
+
+
+$.each(resluts, function(i,item){
+var newResult =  $("<div class='result'>" + 
+"<div class = 'title' > " + item.name + "</div>" +
+"<div> Language: " + item.language + "</div>" +
+"<div> Owner:" + item.owner.login + "</div>" +
+"</div>");
+
+
+newResult.hover(function(){
+      //make it darker
+      $(this).css("background-color","lightgrey");
+},function(){
+      //reverse
+      $(this).css("background-color","transparent");
+});
+reslutList.append(newResult);
+
+});
+
+}
+
+
+-------------------------------
+site.css
+-------------------------------
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	background-color: white;
+	}
+
+	#results{
+		padding: 2px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     display: inline-block;
+     vertical-align: top;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+header nav{
+	float: right;
+	margin-right : 5px;
+
+}
+
+header nav li{
+	display : inline;
+}
+
+a{
+	color: green;
+}
+
+.result {
+	margin : 5px;
+	border : 1px solid #888;
+}
+
+.result .title{
+	font-weight : bold;
+}
+
+
+---------------------------------------
+
+index.html
+------------------
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</div>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form" id= "gitHubSearchForm">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice" id="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" >Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>

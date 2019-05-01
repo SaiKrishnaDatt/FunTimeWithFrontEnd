@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</div>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form" id= "gitHubSearchForm">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice" id="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                <button id= "toggleButton" >Hide</button>
+               <div id="resultList"> This is where result will live ... eventually.</div>
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+    
+    <script type="text/javascript" src="jQuery/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src = "js/index.js"></script>
+     </body>
+	</body>
+</html>

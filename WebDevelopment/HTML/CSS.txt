@@ -1,0 +1,1079 @@
+Agenda:
+Styling your HTML
+ -> Styling in HTML
+ -> Introducting CSS
+ -> Understanding CSS Rules
+ ->CSS Selectors
+ ->Sizing in CSS
+ ->Positioning in CSS
+ ->Debugging Sytling with the browser
+
+ Sytling in HTML
+ -> Sytle Property
+  Contains rules for layout, but should separtate UI/Sytle
+
+
+   example : 
+   <!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+	</head>
+	<body>
+		<header style = "background-color: lightgrey;">
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<lable for="useStars">Use Stars?</lable></br>
+         	    <lable >Language:</lable>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+
+ -> Sytle Tags
+ Can contain sytling information separate from HTML But it only 'perPage'
+ Not reusable we need to copy paste on the each project.Ofcourse maintaining them over a time will be a problem
+
+ <!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    		<style >
+    			header {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    				font-family : 'Times New Roman', serif;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+    		</style>
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<lable for="useStars">Use Stars?</lable></br>
+         	    <lable >Language:</lable>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+note: two rules
+If a rules occurs later that will win
+more specific rules win over general rules
+
+ ->CSS
+ Contains rules for sytling the UI
+ Leaves HTML structural informaiton 
+ Allows site-wide rules and overriding for specific cases.body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section>
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<lable for="useStars">Use Stars?</lable></br>
+         	    <lable >Language:</lable>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+/* site.css */
+header {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    				font-family : 'Times New Roman', serif;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+    			footer{
+    				
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+
+
+
+
+
+ reusing 
+
+ /* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+
+
+
+ID selectors:
+
+body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+body here is called as selector,the selector syntax decide what rules are we gonna apply to 
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<lable for="useStars">Use Stars?</lable></br>
+         	    <lable >Language:</lable>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+
+----------------------------
+
+
+Releative selectors:
+
+we have to create id for all the elements is labours 
+#main > form > label
+	{
+		font-weight : bold;
+	}
+
+
+this says main and its children form and label uses this css
+but this is not best way to declare in css
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+#main input[type=text],
+#main select
+#main input[type=password],
+#main textarea
+{
+	width : 150px;
+}
+
+
+#main input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/gihub.jpg" /> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+--------------------------------------------
+
+Class selector: 
+
+class property named matching for styling rules
+
+ class = "bordered-image simple-form"
+
+ class can be multi value as shown above
+
+ <!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </body>
+	</body>
+</html>
+
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+	.simple-form{
+     padding : 2px;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+
+
+------------------------------------------------
+
+The Box Model - the sizing in CSS
+
+content
+padding 
+border
+margin
+
+height -- height of the content alone
+width  -- its for content alone
+
+acutal-width - including marigin border and padding
+actual-height
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+     </body>
+	</body>
+</html>
+
+
+-----------------------------------------
+
+positioning in CSS:
+.simple-form{
+     padding : 2px;
+     width : 300px;
+     position : static;
+	}
+static: please draw me in the hierarchy that is from top to bottom 
+position : fixed; fixed at  position and relative to hierarchy
+position : absolute ; use it very sparingly , it may break the web
+
+
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     position : absolute;
+     top : 5px;
+     left: 5px;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+
+------------------------
+display in CSS:
+block :
+inline
+inline block:
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+
+	#results{
+		padding: 2px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     display: inline-block;
+     vertical-align: top;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+        <nav>
+        	<ul>
+        	<li><a href="/index.html"> Home</a></li>
+        	<li><a href ="/contact.html">Contact</a></li>
+        	<li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                This is where result will live ... eventually.
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+     </body>
+	</body>
+</html>
+
+----------------------------------------
+Float in CSS:
+we have that nav element we want to keep them at upper right corner.
+/* site.css */
+header , footer {
+    				background-color: lightgrey;
+    				border : solid 1px black;
+    			}
+    			footer {
+    				padding : 10px ;
+    				border-radius: 3px;
+    			}
+    			body {
+    				font-family : Segoe UI, Arial, Helvetica,sans-serif;
+    				font-size : 14px;
+    				background-color: darkgreen;
+    			}
+
+#main{
+	border : solid 1px #ccc;
+	border-radius : 5px;
+	color : #202020;
+	margin : 20px 10px 20px 0px;
+	padding : 5px;
+	}
+
+	#results{
+		padding: 2px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.simple-form{
+     padding : 2px;
+     width : 300px;
+     display: inline-block;
+     vertical-align: top;
+	}
+
+	#main label
+	{
+		font-weight : bold;
+	}
+
+.simple-form input[type=text],
+.simple-form select
+.simple-form input[type=password],
+.simple-form textarea
+{
+	width : 150px;
+}
+
+
+.simple-form input[type=submit]
+{
+	background-color: green;
+	color : white;
+	border-radius: 15px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
+
+.bordered-image {
+	border: solid 1px #444;
+	border-radius : 2px;
+}
+
+.container{
+	width: 989px;
+	margin : 0 auto;
+	background-color: darkgray;
+	padding: 5px;
+}
+
+html,body{
+	margin : 0px;
+	padding : 0px;
+}
+
+header nav{
+	float: right;
+	margin-right : 5px;
+
+}
+
+header nav li{
+	display : inline;
+}
+
+a{
+	color: green;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title> Github Hub</title>
+    	<!--[if lt IE 9]>
+    		<script src="//html5shiv.google.com/svn/trunk/html15.js"></script>
+    		<[endif]-->
+
+    	<link rel = "stylesheet" href="css/site.css" />
+	</head>
+	<body>
+		<header>
+
+             <nav>
+            <ul>
+            <li><a href="/index.html"> Home</a></li>
+            <li><a href ="/contact.html">Contact</a></li>
+            <li><a href= "/about.html">About</a></li>
+
+        </ul>
+        </nav>
+         <div> <img src="img/github.jpg" class = "bordered-image"/> Github Hub</div>
+         <div> This is a <em> sample site </em>to search Github for interseting projects</divfs>
+       
+        <div class = "container">
+         </header>
+         <section id ="main">
+         	<p> In this sample site , we'll show a list of <a href = "https://github.com/">Github</a> projects and the data abut <strong>those projects</strong></p>
+         	<form action = "http://wilder.azurewebsites.net/echo" method ="POST" 
+            class = "bordered-image simple-form">
+         		<label for ="searchPhrases" > Search Phrase : </label>
+         		<input name = "searchPhrases" id ="searchPhrases" /></br>
+         		<input type = "checkbox" name = "useStars"  id ="useStars" checked ="true" /> 
+         		<label for="useStars">Use Stars?</label></br>
+         	    <label >Language:</label>
+         		<select name ="langChoice">
+         			<option> ALL</option>
+         			<option> JavaScript</option>
+         			<option selected> C#</option>
+         			<option> Java</option>
+         			<option> Ruby</option>
+         		</select>
+         	</br>
+         		<input type = "submit" value = "Search"/></br>
+         	</form>
+            <div id="results" class="bordered-image">
+                This is where result will live ... eventually.
+            </div>
+         </section>
+         <footer>
+         	&copy; 2019 Sai Krishna 
+         </footer>
+     </div>
+     </body>
+	</body>
+</html>
+
+
+--------------------------------------------------
+
+
+
+
