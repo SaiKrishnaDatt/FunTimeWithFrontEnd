@@ -580,3 +580,263 @@ for(var x=0 ;x< results.lenght; x++){
       var result = results[x];
       console .log(result);
 }
+
+
+####Second Review:
+
+Java script is used on the vast majority of websites and is supported by every major browser.
+Games can be created using JS using - Unity, a game engine for 3D and 2D games.
+JS is embraced by a scaleable language called TypeScript.
+JS is not just for applications which run in browsers on the web. You can also create native applications for smartphones and tablets using JS. -->Apache Cordova.
+JS can also be used to create full fledged applications for the Mac and windows desktops - Electron.
+Writing server-side code can also be accomplished in JS -- Node.js
+
+For Js we need Node.js , we need the npm package manager which comes bundled with it.
+
+github.com/pluralsight/web-dev-starter
+
+always run npm install from a command promppt.
+
+sudo npm install
+npm run start -> this will startup server and open ups browser for us.  because of lite server , when we change the source code it will recompile and refresh the browser.
+```
+npm install lite-server --save-dev. Install light-server locally and save it to your development environment by running this.
+```
+
+
+npm start errors:
+1. verbose stack at ChildProcess.<anonymous>
+```
+rm -rf node_modules
+
+rm package-lock.json
+
+rm yarn.lock
+
+npm cache clear --force
+
+npm install
+```
+
+
+function showMessage(message){
+	document.getElementById('message').textContent = message;
+}
+
+
+alert("HelloWorld");
+console.log("HelloWorld");
+
+var keyword is legacy  --> no way you can declare constants using var.
+if(true) {
+var value = 'yes';
+console.log(value); --> `yes`
+}
+console.log(value); --> yes.  this is out of the scope that is why var is not prefered
+
+let is the keyword we use to create a new variable.
+let  product = 'Rahul Dravid'
+const keyword for constants
+
+Question : 
+
+let x = 1.1+1.3;
+console.log(x) ->> 2.40000000004 ? 
+
+why is this the case?
+
+ans: 
+if(1.1+1.3 !=2.4) 
+console.log(`true`);   ---> true is printed.
+hmm bad day😞 
+
+so get it fixed with below syntax
+if(+(1.1+1.3).toFixed(2) !=2.4)
+consoel.log(`true`) --> nothing is printed  , wow we fixed it :dance
+
+Question : 
+
+let name = 'Dravid';
+let fullName = `Rahul 
+
+
+${name}`;
+console.log(fullName);
+
+ans ; in web page you see " Rahul Dravid" -> this is because all white space are considered as single space when working with <h1> header or other tags 
+but 
+in console you see "Rahul
+
+
+Dravid"
+
+
+Number to String 
+let amount =10.2;
+console.log(amount.toString());
+console.log(typeOf amount.toString()); ---> string
+
+
+string to number 
+
+let amount = Number.parseFlot("134.23");
+console.log(amount);
+console.log(typeOf amount);   --> number
+let amount = Number.parseFlot("A134.23");
+conosle.log(amount) --> NaN
+let amount = Number.parseFlot("134.23A");
+console.log(amount) --> 134.23 as long the string is number the parse Will happens once it encounters the char it will stop parsing further. and return already parsed number.
+
+
+
+
+
+null and undefined
+
+let saved 
+console.log(saved) -> undefined 
+
+let saved =10;
+saved =null;
+console.log(saved) --> null  
+
+
+
+
+let person = {
+firstName : 'John' ,
+lastName : 'Adams'
+};
+
+console.log(typeof person) --> object
+
+
+
+falsy
+truthy
+false
+0
+""  or ''
+null
+undefined
+NaN
+every thing not falsy
+
+== vs ====
+
+if(1 == "1") {
+consoel.log("true")
+}
+else
+{
+consoel.log("true")
+}
+
+
+output : true 
+omg why is it so.
+Js converts attempts to convert type.
+
+if(1 === "1") {
+consoel.log("true")
+}
+else
+{
+consoel.log("true")
+}
+
+output : false
+this is because if we use === if they are different types then the value returned is false.  that is the reason always use ===
+
+
+
+Functions:
+function showYourScore(){
+//write your code
+}
+
+function expression
+let fn = function () {
+//do some cool stuff
+} 
+fn();
+
+let fn = function myFunction () { --> you can give the name but don't use it for calling the method 
+//do some cool stuff
+} 
+fn();
+myFunction() --> this will through error , this is only for debugging purpose.
+
+
+
+Object : 
+Symbol:
+let mySymbol = Symbol();
+let person ={
+name: "Rahul",
+age: 44,
+[mySymbol] : 'secretInfo'. -> custom info only accessed within our code. the only code which can access this is the code which has access to mySymbol
+};
+
+
+Arrays
+const  values = ['a','b','c'];
+console.log(typeOf values);  --> object
+
+console.log(Array.isArray(values)); -->  true.
+
+values.push ('d') --> pushing element on to the array
+values.pop()
+values.shift() ---> shift the entire elements to left by one index
+values.unshift()--> adds values to the beginning
+
+
+Slice() and splice()  
+Slice() -> created a brand new array  
+const  values = ['a','b','c'];
+const newValues = values.slice(1,2);    new array is created with ['b']
+Splice()
+-> specifically for deleting 
+const  values = ['a','b','c','d'];
+values.splice(1,2);
+console.log(values) //a d
+
+const  values = ['a','b','c'];
+values.splice(1,0,'foo');  --->arg are index, numberOfitemsTodelete,insereted element
+console.log(values) //a foo b c
+
+
+
+
+global scopes ,
+function scope 
+Hoisting concept of using variable before it is declared --> this should be avoided
+value = 137;
+console.log(137);  --> 456; this is not correct we should get undefined error , this is the problem with var .. so avoid using it  and go for let
+var value = 999;
+value = 137;
+console.log(137);  --> can't access value before
+let value = 999;
+
+hoisting is fine for methods 
+demoFun()
+function demoFun(){
+console.log("test");
+}
+
+misc : few references :
+
+const containers = document.getElementsByClassName('container');
+containers[1].classList.add('d-none');
+const button = document.getElementById('show-results');
+button.addEventlistener('click',function(){
+const result = document.getElementById('result');
+if(result.classList.contains('d-none')){
+result.classList.remove('d-none');
+button.textContent='ClOSE RESULTS';
+}
+else{
+result.classList.add('d-none');
+button.textcontent = 'SHOW RESULTS';
+}
+} 
